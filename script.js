@@ -25,6 +25,12 @@ function main(){
  * @return none. 
  */
 function playNim(){
+    count = 0;
+    while (count < 21){
+        playerTurn();
+        if ( count < 21)  cpuTurn();
+        else alert(" you lose ! ");
+    if (count > 20) alert(" you win ");
 
 }
 
@@ -35,7 +41,8 @@ function playNim(){
  * @return none. 
  */
 function userTurn(){
-
+    count += 3;
+    alert(" you counted 3 . count is now " + count);
 }
 /** 
  * cpuTurn runs a computer turn based on the mode  * 
@@ -44,5 +51,6 @@ function userTurn(){
  * @return none. 
  */
 function cpuTurn(){
-    
+    count += 1;
+    alert(" I counted 1 . count is now " + count);
 }
