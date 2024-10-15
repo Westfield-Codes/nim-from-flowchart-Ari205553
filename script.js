@@ -28,9 +28,10 @@ function playNim(){
     count = 0;
     while (count < 21){
         playerTurn();
-        if ( count < 21)  cpuTurn();
-        else alert(" you lose ! ");
-    if (count > 20) alert(" you win ");
+        if ( count > 20) alert(" you lose !");
+        else  cpuTurn();
+        if (count > 20) alert(" you win !");
+    }
 
 }
 
@@ -43,6 +44,15 @@ function playNim(){
 function userTurn(){
     count += 3;
     alert(" you counted 3 . count is now " + count);
+    var  turn;
+    if (turn < 1 || turn > 3){
+         alert("you're cheating !");
+        userTurn();
+    }
+    else {
+         count += turn;
+         alert(" count is now" + count);
+    }
 }
 /** 
  * cpuTurn runs a computer turn based on the mode  * 
@@ -53,4 +63,12 @@ function userTurn(){
 function cpuTurn(){
     count += 1;
     alert(" I counted 1 . count is now " + count);
+    if (count = 19 ||20) turn= 1;
+    else if (count = 18) turn= 2;
+    else if (count = 17) turn= 3;
+    else if (trainer == false) turn= Math.floor(Math.random ()*3) + 1;
+    else turn = 4 - count % 4;
+    count+= turn;
+    alert(" I count" + turn + " count" + count);
 }
+
