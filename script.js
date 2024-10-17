@@ -1,5 +1,5 @@
 /* nim trainer by Ari*/
-*/
+
 
 /* Global variables */
 var trainer = false;
@@ -13,9 +13,9 @@ var count = 0;
  */
 function main(){
     let again = false; 
-     trainer = confirm("trainer mode?");
+    trainer = confirm("trainer mode?");
     playNim();
-    trainer = confirm("again?");
+    again = confirm("again?");
     if (again == true) main();
     }
 /** 
@@ -27,12 +27,13 @@ function main(){
 function playNim(){
     count = 0;
     while (count < 21){
-        playerTurn();
+        userTurn();
         if ( count > 20) alert(" you lose !");
-        else  cpuTurn();
-        if (count > 20) alert(" you win !");
+        else{  
+            cpuTurn();                           
+            if (count > 20) alert(" you win !");
+        }
     }
-
 }
 
 /** 
@@ -42,16 +43,15 @@ function playNim(){
  * @return none. 
  */
 function userTurn(){
-    count += 3;
-    alert(" you counted 3 . count is now " + count);
-    var  turn;
+    let turn = prompt("pick  number 1-3 ");
+    turn = parseInt(turn);  
     if (turn < 1 || turn > 3){
-         alert("you're cheating !");
+        alert("you're cheating !");
         userTurn();
     }
     else {
-         count += turn;
-         alert(" count is now" + count);
+         count+= turn;
+         alert(" count is now " + count);
     }
 }
 /** 
@@ -61,14 +61,12 @@ function userTurn(){
  * @return none. 
  */
 function cpuTurn(){
-    count += 1;
-    alert(" I counted 1 . count is now " + count);
-    if (count = 19 ||20) turn= 1;
-    else if (count = 18) turn= 2;
-    else if (count = 17) turn= 3;
+    if (count == 19 || count == 20) turn= 1;
+    else if (count == 18) turn= 2;
+    else if (count == 17) turn= 3;
     else if (trainer == false) turn= Math.floor(Math.random ()*3) + 1;
-    else turn = 4 - count % 4;
+    else turn = 4 - (count % 4);
     count+= turn;
-    alert(" I count" + turn + " count" + count);
+    alert(" I count " + turn + " count is now " + count);
 }
 
