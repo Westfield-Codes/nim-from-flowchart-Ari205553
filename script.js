@@ -13,7 +13,7 @@ var count = 0;
  */
 function main(){
     let again = false; 
-    trainer = confirm("trainer mode?");
+    trainer = confirm(" trainer mode? ");
     playNim();
     again = confirm("again?");
     if (again == true) main();
@@ -43,10 +43,10 @@ function playNim(){
  * @return none. 
  */
 function userTurn(){
-    let turn = prompt("pick  number 1-3 ");
+    let turn = prompt(" pick  number 1-3 ");
     turn = parseInt(turn);  
     if (turn < 1 || turn > 3){
-        alert("you're cheating !");
+        alert(" you're cheating ! ");
         userTurn();
     }
     else {
