@@ -64,9 +64,9 @@ function cpuTurn(){
     if (count == 19 || count == 20) turn= 1;
     else if (count == 18) turn= 2;
     else if (count == 17) turn= 3;
-    else if (trainer == false) turn= Math.floor(Math.random ()*3) + 1;
-    else turn = 4 - (count % 4);
+    else if (trainer == true) turn =  4 - (count % 4);
+    else  turn= Math.floor(Math.random ()*3)+1;
     count+= turn;
-    alert(" I count " + turn + " count is now " + count);
+    alert(" I count " + turn + " count is now " + count + ".");
 }
 
